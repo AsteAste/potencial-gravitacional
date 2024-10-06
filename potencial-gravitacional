@@ -1,0 +1,23 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+G = 6.67430e-11  # Constante gravitacional
+M = 5.972e24  # Massa da Terra (kg)
+x = np.linspace(-3, 3, 100) # Espaço em x
+y = np.linspace(-3, 3, 100) # ESpaço em y
+X, Y = np.meshgrid(x, y) # Matriz de coordenadas do espaços
+
+# Cálculo do potencial gravitacional
+Z = -G * M / np.sqrt(X**2 + Y**2)
+
+fig = plt.figure()
+ax = fig.add_subplot(111, projection='3d')
+ax.plot_surface(X, Y, Z, cmap='inferno')
+
+ax.set_xlabel('X (m)')
+ax.set_ylabel('Y (m)')
+ax.set_zlabel('Potencial Gravitacional (J/kg)')
+ax.set_title('Superfície de Potencial Gravitacional')
+
+plt.show()
+
